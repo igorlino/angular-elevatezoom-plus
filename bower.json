@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": {
     "name": "Igor Lino",
-    "url": "http://igorlino.github.io/angular-angular-elevatezoom-plus/"
+    "url": "http://igorlino.github.io/angular-elevatezoom-plus/"
   },
   "licenses": [
     {
@@ -26,7 +26,8 @@
   "demo" : "http://igorlino.github.io/angular-elevatezoom-plus/examples",
   "dependencies": {
     "jquery": "~2.1.1",
-    "angular": "~1.3.4"
+    "angular": "~1.3.4",
+	"ez-plus": "~1.0.0"
   },
   "devDependencies": {
   },

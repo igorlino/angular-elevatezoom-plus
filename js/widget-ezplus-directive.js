@@ -31,7 +31,7 @@
                 } else if (image) {
                     element.attr('src', thumbMediumUrl);
                     element.attr('data-zoom-image', fullSizeUrl);
-                    angular.element(element).elevateZoom({
+                    angular.element(element).ezPlus({
                         scrollZoom: true,
                         zoomWindowWidth: 600,
                         zoomWindowHeight: 600,

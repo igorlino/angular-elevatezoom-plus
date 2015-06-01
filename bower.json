@@ -12,7 +12,8 @@
         }
     ],
     "main": [
-        "js/widget-ezplus-directive.js",
+        "js/ezplus.module.js",
+        "js/ezplus.directive.js",
         "images/loader-small.gif"
     ],
     "ignore": [

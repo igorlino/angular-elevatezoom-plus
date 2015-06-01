@@ -1,38 +1,38 @@
 {
-  "name": "angular-ez-plus",
-  "version": "1.0.0",
-  "author": {
-    "name": "Igor Lino",
-    "url": "http://igorlino.github.io/angular-elevatezoom-plus/"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://www.opensource.org/licenses/mit-license.php"
+    "name": "angular-ez-plus",
+    "version": "1.0.0",
+    "author": {
+        "name": "Igor Lino",
+        "url": "http://igorlino.github.io/angular-elevatezoom-plus/"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://www.opensource.org/licenses/mit-license.php"
+        }
+    ],
+    "main": [
+        "js/widget-ezplus-directive.js",
+        "images/loader-small.gif"
+    ],
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "components"
+    ],
+    "bugs": "https://github.com/igorlino/angular-elevatezoom-plus/issues",
+    "homepage": "http://igorlino.github.io/angular-elevatezoom-plus/",
+    "docs": "http://igorlino.github.io/angular-elevatezoom-plus/examples",
+    "demo": "http://igorlino.github.io/angular-elevatezoom-plus/examples",
+    "dependencies": {
+        "jquery": "~2.1.1",
+        "angular": "~1.3.4",
+        "ez-plus": "~1.1.0"
+    },
+    "devDependencies": {
+    },
+    "resolutions": {
+        "jquery": "~2.1.1",
+        "angular": "~1.3.4"
     }
-  ],
-  "main": [
-    "js/widget-ezplus-directive.js",
-	"images/loader-small.gif"
-  ],
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "components"
-  ],
-  "bugs": "https://github.com/igorlino/angular-elevatezoom-plus/issues",
-  "homepage": "http://igorlino.github.io/angular-elevatezoom-plus/",
-  "docs" : "http://igorlino.github.io/angular-elevatezoom-plus/examples",
-  "demo" : "http://igorlino.github.io/angular-elevatezoom-plus/examples",
-  "dependencies": {
-    "jquery": "~2.1.1",
-    "angular": "~1.3.4",
-	"ez-plus": "~1.0.0"
-  },
-  "devDependencies": {
-  },
-  "resolutions": {
-    "jquery": "~2.1.1",
-    "angular": "~1.3.4"
-  }
 }

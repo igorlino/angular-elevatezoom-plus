@@ -1,7 +1,7 @@
-[Angular Directive](http://igorlino.github.io/angular-elevatezoom-plus/)
+[Angular EZ Plus](http://igorlino.github.io/angular-elevatezoom-plus/)
 ================================
 
-[Angular EZ Plus](http://igorlino.github.io/angular-elevatezoom-plus/) is directive for  [ElevateZoom Plus](http://igorlino.github.io/elevatezoom-plus/)
+[Angular EZ Plus](http://igorlino.github.io/angular-elevatezoom-plus/) is directive for the [ElevateZoom Plus](http://igorlino.github.io/elevatezoom-plus/) library.
 
 ## Features
 
@@ -26,15 +26,21 @@ bower install angular-ez-plus
 In a browser:
 
 ```html
-<script src="widget-ezplus-directive.js"></script>
+<script src="jquery.ez-plus.js"></script>
+<script src="ezplus-module.js"></script>
+<script src="ezplus-directive.js"></script>
 ```
 
 ## Getting Started
 
-Include jQuery and the plug-in on a page. Include your images and initialise the plug-in.
+Include the ezPlus plug-in and the directive on a page.
 
 ```html
-<img ez-plus id="zoom_01" src='images/large/image1.png' />
+<img
+    ez-plus 
+    ezp-model="{thumb:IMGPATH, small:IMGPATH, large:IMGPATH}"
+    ezp-options={scrollZoom: true,easing: true}
+     id="zoom_01" src='images/large/image1.png' />
 ```
 
 For more information on how to setup and customise, [check the examples](http://igorlino.github.io/angular-elevatezoom-plus/).

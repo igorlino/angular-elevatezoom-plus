@@ -19,8 +19,6 @@
 
         link.$inject = ['$scope', '$element', '$attributes'];
         function link($scope, $element, $attributes) {
-            $scope.appendto = typeof($attributes.appendto) !== 'undefined' ? $attributes.appendto : null;
-
             $scope.$on("ezp-hidesAll", function (e, msg) {
                 var plugin = angular.element($element).data('ezPlus');
                 if (plugin) {
@@ -69,25 +67,16 @@
                         $element.attr('src', thumbMediumUrl);
                         $element.attr('data-zoom-image', fullSizeUrl);
                         var options = {
-                            /*scrollZoom: true,
-                            zoomWindowWidth: 600,
-                            zoomWindowHeight: 600,
-                            easing: true,
-                            zoomWindowFadeIn: 500,
-                            zoomWindowFadeOut: 500,
-                            lensFadeIn: 500,
-                            lensFadeOut: 500*/
                         };
-                        if ($scope.appendto) {
-                            options.zoomContainerAppendTo = $scope.appendto;
-                        }
 
-                        //generic way that sets all (non-function) parameters of colorbox.
+                        //generic way that sets all (non-function) parameters of elevate zoom plus.
                         if ($scope.ezpOptions) {
-                            //var cbOptionsFunc = $parse($attributes.options);
-                            //var cbOptions = cbOptionsFunc($scope);
                             angular.extend(options, $scope.ezpOptions);
                         }
+                        if (options.appendto) {
+                            options.zoomContainerAppendTo = options.appendto;
+                        }
+
                         angular.element($element).ezPlus(options);
                     }
                 }

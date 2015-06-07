@@ -49,8 +49,9 @@
             });
             $scope.$watch('ezpModel', function (newValue, oldValue) {
                 var image = newValue;
-                var thumbMediumUrl = (image && image.thumb) || '';
-                var fullSizeUrl = (image && image.large) || '';
+                var thumbUrl = (image && image.thumb) || '';
+                var smallUrl = (image && image.small) || '';
+                var largeUrl = (image && image.large) || '';
 
                 var plugin = angular.element($element).data('ezPlus');
                 if (plugin) {
@@ -58,16 +59,13 @@
                         var loader = 'images/loader-small.gif';
                         plugin.showHideWindow();
                         plugin.swaptheimage(loader, loader);
-                        plugin.swaptheimage(thumbMediumUrl, fullSizeUrl);
+                        plugin.swaptheimage(thumbUrl, largeUrl);
                     } else {
                         plugin.closeAll();
                     }
                 } else {
                     if (image) {
-                        $element.attr('src', thumbMediumUrl);
-                        $element.attr('data-zoom-image', fullSizeUrl);
-                        var options = {
-                        };
+                        var options = {};
 
                         //generic way that sets all (non-function) parameters of elevate zoom plus.
                         if ($scope.ezpOptions) {
@@ -76,6 +74,16 @@
                         if (options.appendto) {
                             options.zoomContainerAppendTo = options.appendto;
                         }
+
+                        if (options.initial === 'thumb') {
+                            $element.attr('src', thumbUrl);
+                        } else if (options.initial === 'small') {
+                            $element.attr('src', smallUrl);
+                        } else if (options.initial === 'large') {
+                            $element.attr('src', largeUrl);
+                        }
+
+                        $element.attr('data-zoom-image', largeUrl);
 
                         angular.element($element).ezPlus(options);
                     }

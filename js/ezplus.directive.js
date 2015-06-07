@@ -29,6 +29,11 @@
                 options.zoomContainerAppendTo = options.appendto;
             }
 
+            var loader;
+            if (options.loader) {
+                loader = options.loader;
+            }
+
             $scope.$on("ezp-hidesAll", function (e, msg) {
                 var plugin = angular.element($element).data('ezPlus');
                 if (plugin) {
@@ -66,9 +71,12 @@
                 var plugin = angular.element($element).data('ezPlus');
                 if (plugin) {
                     if (image) {
-                        var loader = 'images/loader-small.gif';
-                        plugin.showHideWindow();
-                        plugin.swaptheimage(loader, loader);
+                        plugin.showHideWindow('hide');
+                        plugin.showHideTint('hide');
+                        plugin.showHideLens('hide');
+                        if (loader) {
+                            plugin.swaptheimage(loader, loader);
+                        }
 
                         var initialUrl = getInitialUrl(smallUrl);
                         plugin.swaptheimage(initialUrl, largeUrl);

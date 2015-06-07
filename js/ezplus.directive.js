@@ -9,7 +9,14 @@
             restrict: 'A',
             scope: {
                 ezpModel: '=',
-                ezpOptions: '='
+                ezpOptions: '=',
+                onComplete: '=ezpOnComplete',
+                onDestroy: '=ezpOnDestroy',
+                onImageClick: '=ezpOnImageClick',
+                onImageSwap: '=ezpOnImageSwap',
+                onImageSwapComplete: '=ezpOnImageSwapComplete',
+                onShow: '=ezpOnShow',
+                onZoomedImageLoaded: '=ezpOnZoomedImageLoaded'
             },
             link: link
         };
@@ -19,7 +26,44 @@
 
         link.$inject = ['$scope', '$element', '$attributes'];
         function link($scope, $element, $attributes) {
-            var options = {};
+            var options = {
+                onComplete: function () {
+                    if ($scope.onComplete()) {
+                        $scope.onComplete()();
+                    }
+                },
+                onDestroy: function () {
+                    if ($scope.onDestroy()) {
+                        $scope.onDestroy()();
+                    }
+                },
+                onImageClick: function () {
+                    if ($scope.onImageClick()) {
+                        $scope.onImageClick()();
+                    }
+                },
+
+                onImageSwap: function () {
+                    if ($scope.onImageSwap()) {
+                        $scope.onImageSwap()();
+                    }
+                },
+                onImageSwapComplete: function () {
+                    if ($scope.onImageSwapComplete()) {
+                        $scope.onImageSwapComplete()();
+                    }
+                },
+                onShow: function () {
+                    if ($scope.onShow()) {
+                        $scope.onShow()();
+                    }
+                },
+                onZoomedImageLoaded: function () {
+                    if ($scope.onZoomedImageLoaded()) {
+                        $scope.onZoomedImageLoaded()();
+                    }
+                }
+            };
 
             //generic way that sets all (non-function) parameters of elevate zoom plus.
             if ($scope.ezpOptions) {

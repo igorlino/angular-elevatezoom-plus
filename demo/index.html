@@ -41,25 +41,24 @@
     <script type="text/javascript" src="http://fancyapps.com/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
     <link rel="stylesheet" type="text/css" href="http://fancyapps.com/fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
 
-    <script src='https://rawgit.com/igorlino/angular-elevatezoom-plus/master/js/ezplus.module.js'></script>
-    <script src='https://rawgit.com/igorlino/angular-elevatezoom-plus/master/js/ezplus.directive.js'></script>
+    <!--script src='https://rawgit.com/igorlino/angular-elevatezoom-plus/master/js/ezplus.module.js'></script>
+    <script src='https://rawgit.com/igorlino/angular-elevatezoom-plus/master/js/ezplus.directive.js'></script>-->
+    <script src='../js/ezplus.module.js'></script>
+    <script src='../js/ezplus.directive.js'></script>
 
+    <!--<script src='https://rawgit.com/igorlino/angular-elevatezoom-plus/master/demo/controller.js'></script>
+    <script src='https://rawgit.com/igorlino/angular-elevatezoom-plus/master/demo/app.js'></script>-->
     <script src='controller.js'></script>
     <script src='app.js'></script>
 
-
     <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.min.js'></script>
-
-
-
-
 
 </head>
 
 <body
     ng-app="demo"
     ng-controller="EZPlusCtrl"
-    ng-init="approot='';zoom01=false;zoom01a=false;zoom03=false;zoom04=false;">
+    ng-init="setApproot('');zoom01=false;zoom01a=false;zoom03=false;zoom04=false;">
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">

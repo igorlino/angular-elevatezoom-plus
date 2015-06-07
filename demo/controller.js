@@ -1,35 +1,39 @@
 angular.module('demo.controllers', []).
     controller('EZPlusCtrl', function ($scope, $location) {
-        /*$scope.$on('$routeChangeSuccess', function() {
-         $scope.menuActive = $location.path().split("/")[1];
-         });*/
-        $scope.imagesForGallery = [
-            {
-                thumb: 'images/thumb/image1.jpg',
-                small: 'images/small/image1.jpg',
-                large: 'images/large/image1.jpg'
-            },
-            {
-                thumb: 'images/thumb/image2.jpg',
-                small: 'images/small/image2.jpg',
-                large: 'images/large/image2.jpg'
-            },
-            {
-                thumb: 'images/thumb/image3.jpg',
-                small: 'images/small/image3.jpg',
-                large: 'images/large/image3.jpg'
-            },
-            {
-                thumb: 'images/thumb/image4.jpg',
-                small: 'images/small/image4.jpg',
-                large: 'images/large/image4.jpg'
-            },
-            {
-                thumb: 'images/thumb/image5.jpg',
-                small: 'images/small/image5.jpg',
-                large: 'images/large/image5.jpg'
-            }
-        ];
+        $scope.imagesForGallery = [];
+        $scope.setApproot = function(appRoot) {
+            $scope.approot = appRoot;
+            $scope.imagesForGallery = [
+                {
+                    thumb: appRoot + 'images/thumb/image1.jpg',
+                    small: appRoot + 'images/small/image1.jpg',
+                    large: appRoot + 'images/large/image1.jpg'
+                },
+                {
+                    thumb: appRoot + 'images/thumb/image2.jpg',
+                    small: appRoot + 'images/small/image2.jpg',
+                    large: appRoot + 'images/large/image2.jpg'
+                },
+                {
+                    thumb: appRoot + 'images/thumb/image3.jpg',
+                    small: appRoot + 'images/small/image3.jpg',
+                    large: appRoot + 'images/large/image3.jpg'
+                },
+                {
+                    thumb: appRoot + 'images/thumb/image4.jpg',
+                    small: appRoot + 'images/small/image4.jpg',
+                    large: appRoot + 'images/large/image4.jpg'
+                },
+                {
+                    thumb: appRoot + 'images/thumb/image5.jpg',
+                    small: appRoot + 'images/small/image5.jpg',
+                    large: appRoot + 'images/large/image5.jpg'
+                }
+            ];
+        };
+
+        //default
+        $scope.setApproot('');
 
         $scope.zoomOptions = {
             scrollZoom: true,

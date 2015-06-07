@@ -19,6 +19,16 @@
 
         link.$inject = ['$scope', '$element', '$attributes'];
         function link($scope, $element, $attributes) {
+            var options = {};
+
+            //generic way that sets all (non-function) parameters of elevate zoom plus.
+            if ($scope.ezpOptions) {
+                angular.extend(options, $scope.ezpOptions);
+            }
+            if (options.appendto) {
+                options.zoomContainerAppendTo = options.appendto;
+            }
+
             $scope.$on("ezp-hidesAll", function (e, msg) {
                 var plugin = angular.element($element).data('ezPlus');
                 if (plugin) {
@@ -59,28 +69,18 @@
                         var loader = 'images/loader-small.gif';
                         plugin.showHideWindow();
                         plugin.swaptheimage(loader, loader);
-                        plugin.swaptheimage(thumbUrl, largeUrl);
+
+                        var initialUrl = getInitialUrl(smallUrl);
+                        plugin.swaptheimage(initialUrl, largeUrl);
                     } else {
                         plugin.closeAll();
                     }
                 } else {
                     if (image) {
-                        var options = {};
 
-                        //generic way that sets all (non-function) parameters of elevate zoom plus.
-                        if ($scope.ezpOptions) {
-                            angular.extend(options, $scope.ezpOptions);
-                        }
-                        if (options.appendto) {
-                            options.zoomContainerAppendTo = options.appendto;
-                        }
-
-                        if (options.initial === 'thumb') {
-                            $element.attr('src', thumbUrl);
-                        } else if (options.initial === 'small') {
-                            $element.attr('src', smallUrl);
-                        } else if (options.initial === 'large') {
-                            $element.attr('src', largeUrl);
+                        var initialUrl = getInitialUrl();
+                        if (initialUrl) {
+                            $element.attr('src', initialUrl);
                         }
 
                         $element.attr('data-zoom-image', largeUrl);
@@ -88,11 +88,25 @@
                         angular.element($element).ezPlus(options);
                     }
                 }
+
+                function getInitialUrl(defaultUrl) {
+                    var initialUrl = defaultUrl;
+                    if (options.initial === 'thumb') {
+                        initialUrl = thumbUrl;
+                    } else if (options.initial === 'small') {
+                        initialUrl = smallUrl;
+                    } else if (options.initial === 'large') {
+                        initialUrl = largeUrl;
+                    }
+                    return initialUrl;
+                }
             });
 
             $scope.$on('$destroy', function () {
                 $element.remove();
             });
+
+
         }
     }
 

@@ -28,38 +28,38 @@
         function link($scope, $element, $attributes) {
             var options = {
                 onComplete: function () {
-                    if ($scope.onComplete()) {
+                    if ($scope.onComplete && $scope.onComplete()) {
                         $scope.onComplete()();
                     }
                 },
                 onDestroy: function () {
-                    if ($scope.onDestroy()) {
+                    if ($scope.onDestroy && $scope.onDestroy()) {
                         $scope.onDestroy()();
                     }
                 },
                 onImageClick: function () {
-                    if ($scope.onImageClick()) {
+                    if ($scope.onImageClick && $scope.onImageClick()) {
                         $scope.onImageClick()();
                     }
                 },
 
                 onImageSwap: function () {
-                    if ($scope.onImageSwap()) {
+                    if ($scope.onImageSwap && $scope.onImageSwap()) {
                         $scope.onImageSwap()();
                     }
                 },
                 onImageSwapComplete: function () {
-                    if ($scope.onImageSwapComplete()) {
+                    if ($scope.onImageSwapComplete && $scope.onImageSwapComplete()) {
                         $scope.onImageSwapComplete()();
                     }
                 },
                 onShow: function () {
-                    if ($scope.onShow()) {
+                    if ($scope.onShow && $scope.onShow()) {
                         $scope.onShow()();
                     }
                 },
                 onZoomedImageLoaded: function () {
-                    if ($scope.onZoomedImageLoaded()) {
+                    if ($scope.onZoomedImageLoaded && $scope.onZoomedImageLoaded()) {
                         $scope.onZoomedImageLoaded()();
                     }
                 }

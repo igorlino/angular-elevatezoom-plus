@@ -2,6 +2,10 @@ angular.module('demo.controllers', []).
     controller('EZPlusCtrl', function ($scope, $location) {
         $scope.imagesForGallery = [];
         $scope.setApproot = function(appRoot) {
+            //only change when needed.
+            if ($scope.approot && appRoot === $scope.approot) {
+                return;
+            }
             $scope.approot = appRoot;
             $scope.imagesForGallery = [
                 {
@@ -30,6 +34,12 @@ angular.module('demo.controllers', []).
                     large: appRoot + 'images/large/image5.jpg'
                 }
             ];
+
+            $scope.zoomModel1 = $scope.imagesForGallery[0];
+            $scope.zoomModel2 = $scope.imagesForGallery[1];
+
+            $scope.zoomModelGallery01 = $scope.imagesForGallery[1];
+            $scope.zoomModelGallery04 = $scope.imagesForGallery[1];
         };
 
         //default

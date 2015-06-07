@@ -39,7 +39,7 @@ Include the ezPlus plug-in and the directive on a page.
 <img
     ez-plus 
     ezp-model="{thumb:IMGPATH, small:IMGPATH, large:IMGPATH}"
-    ezp-options={scrollZoom: true,easing: true}
+    ezp-options="{scrollZoom: true, easing: true}"
      id="zoom_01" src='images/large/image1.png' />
 ```
 

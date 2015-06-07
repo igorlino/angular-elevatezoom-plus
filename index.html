@@ -120,12 +120,6 @@
 
         <h2>Gallery</h2>
 
-        <img id="zoom_03"
-             ez-plus
-             ezp-model="zoomModelGallery01"
-             ezp-options="zoomOptionsGallery01"
-            />
-
         <div id="gallery_01">
             <a class="img-group-01"
                ng-repeat="image2 in imagesForGallery"
@@ -138,6 +132,12 @@
                 <img ng-src="{{approot}}{{image2.thumb}}"/>
             </a>
         </div>
+
+        <img id="zoom_03"
+             ez-plus
+             ezp-model="zoomModelGallery01"
+             ezp-options="zoomOptionsGallery01"
+                />
 
         <colorbox
             box-for=".img-group-01"

@@ -1,6 +1,6 @@
 {
     "name": "angular-ez-plus",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "author": {
         "name": "Igor Lino",
         "url": "http://igorlino.github.io/angular-elevatezoom-plus/"
@@ -12,8 +12,7 @@
         }
     ],
     "main": [
-        "js/ezplus.module.js",
-        "js/ezplus.directive.js",
+        "js/angular-ezplus.js",
         "images/loader-small.gif"
     ],
     "ignore": [

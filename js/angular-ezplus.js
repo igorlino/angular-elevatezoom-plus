@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('ezplus')
+    angular.module('ezplus', [])
         .directive('ezPlus', ezPlus);
 
     function ezPlus() {

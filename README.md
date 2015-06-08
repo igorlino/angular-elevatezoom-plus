@@ -27,8 +27,7 @@ In a browser:
 
 ```html
 <script src="jquery.ez-plus.js"></script>
-<script src="ezplus-module.js"></script>
-<script src="ezplus-directive.js"></script>
+<script src="angular-ezplus.js"></script>
 ```
 
 ## Getting Started

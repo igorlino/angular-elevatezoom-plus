@@ -79,20 +79,10 @@
             }
 
             $scope.$on("ezp-hidesAll", function (e, msg) {
-                var plugin = angular.element($element).data('ezPlus');
-                if (plugin) {
-                    plugin.showHideWindow('hide');
-                    plugin.showHideTint('hide');
-                    plugin.showHideLens('hide');
-                }
+                hideZoom();
             });
             $scope.$on("ezp-showAll", function (e, msg) {
-                var plugin = angular.element($element).data('ezPlus');
-                if (plugin) {
-                    plugin.showHideWindow('show');
-                    plugin.showHideTint('show');
-                    plugin.showHideLens('show');
-                }
+                showZoom();
             });
             $scope.$on("ezp-disableZoom", function (e, msg) {
                 var plugin = angular.element($element).data('ezPlus');
@@ -115,15 +105,14 @@
                 var plugin = angular.element($element).data('ezPlus');
                 if (plugin) {
                     if (image) {
-                        plugin.showHideWindow('hide');
-                        plugin.showHideTint('hide');
-                        plugin.showHideLens('hide');
+                        hideZoom();
                         if (loader) {
                             plugin.swaptheimage(loader, loader);
                         }
 
                         var initialUrl = getInitialUrl(smallUrl);
                         plugin.swaptheimage(initialUrl, largeUrl);
+                        showZoom();
                     } else {
                         plugin.closeAll();
                     }
@@ -158,7 +147,26 @@
                 $element.remove();
             });
 
-
+            function hideZoom() {
+                var action='hide';
+                var plugin = angular.element($element).data('ezPlus');
+                if (plugin) {
+                    plugin.showHideZoomContainer(action);
+                    plugin.showHideWindow(action);
+                    plugin.showHideTint(action);
+                    plugin.showHideLens(action);
+                }
+            }
+            function showZoom() {
+                var action='show';
+                var plugin = angular.element($element).data('ezPlus');
+                if (plugin) {
+                    plugin.showHideLens(action);
+                    plugin.showHideTint(action);
+                    plugin.showHideWindow(action);
+                    plugin.showHideZoomContainer(action);
+                }
+            }
         }
     }
 

@@ -33,13 +33,29 @@
         </ul>
 
         <div class="zoom-left">
-            <img style="width:411px" id="img_01"
+            <img style="width:411px" id="zoom_03"
                  src="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/demo/images/small/image3.jpg"
                  data-zoom-image="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/demo/images/large/image3.jpg"
+
+                 ez-plus
+                 ezp-model="zoomModelGallery01"
+                 ezp-options="zoomOptionsGallery01"
                 />
 
-            <div id="gal1" style="width:500px;float:left;">
+            <div id="gallery_01" style="width:500px;float:left;">
+                <a class="img-group-01"
+                   ng-repeat="image2 in imagesForGallery"
+                   ng-click="setActiveImageInGallery('zoomModelGallery01',image2);"
 
+                   data-image="{{approot}}{{image2.small}}"
+                   data-zoom-image="{{approot}}{{image2.large}}"
+
+                   href="#">
+                    <img ng-src="{{approot}}{{image2.thumb}}"/>
+                </a>
+            </div>
+
+            <!--<div id="gal1" style="width:500px;float:left;">
                 <a href="#" class="elevatezoom-gallery" data-update=""
                    data-image="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/demo/images/small/image1.jpg"
                    data-zoom-image="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/demo/images/large/image1.jpg">
@@ -71,18 +87,17 @@
                           src="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/demo/images/small/image4.jpg"
                           width="100"/></a>
 
-            </div>
+            </div>-->
+
+            <colorbox
+                box-for=".img-group-01"
+                open="zoom03"
+                options="{rel:'img-group-01', slideshow:false, open:true}">
+
+            </colorbox>
+
         </div>
         <div style="clear:both;"></div>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $("#zoom_06").ezPlus({
-                    zoomType: "inner",
-                    debug: true,
-                    cursor: "crosshair"
-                });
-            });
-        </script>
 
         <div class="scripts view_script_05">
             <h6>HTML</h6>

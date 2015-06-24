@@ -1,4 +1,4 @@
-angular.module('demo.controllers', []).
+angular.module('elevatezoomdemo.controllers', []).
     controller('EZPlusCtrl', function ($scope, $location) {
         $scope.imagesForGallery = [];
         $scope.setApproot = function(appRoot) {

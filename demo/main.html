@@ -1,0 +1,155 @@
+<div id="col_wrap">
+    <div id="col_left" class="zoom-wrapper">
+
+
+        <h1>What is it?</h1>
+
+        <p>
+            <a href="https://github.com/igorlino/elevatezoom-plus"><strong>ElevateZoom-Plus</strong></a> is a jquery
+            plugin for zooming images within a container or also in a
+            "lens"
+            that floats overtop of web page.
+            <br/>
+            It was built using the <a href="http://jquery.com/">jQuery library</a>.
+            Licensed under <a href="http://docs.jquery.com/Licensing">MIT license</a>
+        </p>
+
+
+        <h1>Features</h1>
+
+        <ul class="list">
+            <li>Fully Customisable</li>
+            <li>Coloured Tints</li>
+            <li><a href="http://igorlino.github.io/fancybox-plus/">Fancybox-Plus</a> and <a
+                href="http://www.jacklmoore.com/colorbox/">Colorbox</a> Gallery Support
+            </li>
+            <li>Variable zoom on mouse scroll</li>
+            <li>External Controls</li>
+            <li>Window Zoom, Lens Zoom and Inner Zoom</li>
+            <li>AngularJS directive available: <a href="https://github.com/igorlino/angular-elevatezoom-plus">angular-elevatezoom-plus</a>
+            </li>
+            <li>Free to use under MIT license</li>
+
+        </ul>
+
+        <div class="zoom-left">
+            <img style="width:411px" id="img_01"
+                 src="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/demo/images/small/image3.jpg"
+                 data-zoom-image="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/demo/images/large/image3.jpg"
+                />
+
+            <div id="gal1" style="width:500px;float:left;">
+
+                <a href="#" class="elevatezoom-gallery" data-update=""
+                   data-image="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/demo/images/small/image1.jpg"
+                   data-zoom-image="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/demo/images/large/image1.jpg">
+                    <img id="img_01"
+                         src="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/demo/images/small/image1.jpg"
+                         width="100"/></a>
+
+                <a href="#" class="elevatezoom-gallery"
+                   data-image="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/demo/images/small/image2.jpg"
+                   data-zoom-image="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/demo/images/large/image2.jpg"
+                    ><img id=""
+                          src="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/demo/images/small/image2.jpg"
+                          width="100"/></a>
+
+                <a href="tester" class="elevatezoom-gallery"
+                   data-image="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/demo/images/small/image3.jpg"
+                   data-zoom-image="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/demo/images/large/image3.jpg">
+                    <img id=""
+                         src="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/demo/images/small/image3.jpg"
+                         width="100"/>
+                </a>
+
+                <a href="tester" class="elevatezoom-gallery"
+                   data-image="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/demo/images/small/image4.jpg"
+                   data-zoom-image="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/demo/images/large/image4.jpg"
+
+                   class="slide-content"
+                    ><img id=""
+                          src="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/demo/images/small/image4.jpg"
+                          width="100"/></a>
+
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#zoom_06").ezPlus({
+                    zoomType: "inner",
+                    debug: true,
+                    cursor: "crosshair"
+                });
+            });
+        </script>
+
+        <div class="scripts view_script_05">
+            <h6>HTML</h6>
+                <pre><code class="language-markup">&lt;img id=&quot;zoom_04&quot; src=&quot;small/image1.png&quot;
+                    data-zoom-image=&quot;large/image1.jpg&quot;/&gt;</code></pre>
+            <h6>JAVASCRIPT</h6>
+            <pre><code class="language-javascript">$(&quot;#zoom_04&quot;).ezPlus();</code></pre>
+        </div>
+
+        <hr class="style-two">
+
+        <div style="clear:both;"></div>
+
+        <div>
+            <h1 style="font-size: 19px;margin-top:30px;margin-bottom:10px;">Installation and usage</h1>
+
+            <p>No need to download anything, you only need to include the jquery and elevatezoom plugin files into
+                your project as show below:</p>
+
+<pre><code class="language-javascript">&lt;script type=&quot;text/javascript&quot; src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/src/jquery.ez-plus.js&quot;&gt;&lt;/script&gt;</code></pre>
+
+
+            <h1 style="font-size: 19px;margin-top:30px;margin-bottom:10px;">Include your Image</h1>
+
+            <p>ElevateZoom-Plus works best using two images, one low resolution for the visible image, and one
+                high
+                resolution for the zoomed image.
+                If you only have one image available, Elevate Zoom will still work if you scale down the
+                image,
+                although this is not recommended as your page load time will increase if
+                you are loading larger images</p>
+
+            <p>Please ensure your small image is proportionally scaled down from the large image.
+
+            <p>
+                <pre><code class="language-markup">&lt;img id=&quot;zoom_01&quot; src=&quot;small/image1.png&quot;
+                    data-zoom-image=&quot;large/image1.jpg&quot;/&gt;</code></pre>
+            <h1 style="font-size: 19px;margin-top:30px;margin-bottom:10px;">Activate the zoom - Basic
+                Example</h1>
+
+            <pre><code class="language-javascript">$(&quot;#img_01&quot;).ezPlus();</code></pre>
+
+            <h1 style="font-size: 19px;margin-top:30px;margin-bottom:10px;">More Examples</h1>
+
+            See More examples of the image zoom <a
+            href="examples.htm">here</a>
+
+
+        </div>
+
+        <!--<div id="col_right">
+            <div id="col_sep">
+
+                <p><b>Current Release</b><br/><a href="">Version</b> 1.3.5 (20.06.2015)</a></p>
+
+                <p><a href="https://github.com/igorlino/fancybox-plus/blob/master/CHANGELOG.md">Changelog</a></p>
+
+            </div>
+
+        </div>-->
+
+        <div class="clear"></div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    // Rerun Prism syntax highlighting on the current page
+    Prism && Prism.highlightAll();
+</script>

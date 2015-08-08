@@ -144,7 +144,10 @@
             });
 
             $scope.$on('$destroy', function () {
-                $element.remove();
+                var plugin = angular.element($element).data('ezPlus');
+                if (plugin) {
+                    plugin.destroy();
+                }
             });
 
             function hideZoom() {

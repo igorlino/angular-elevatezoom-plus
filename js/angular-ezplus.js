@@ -78,19 +78,19 @@
                 loader = options.loader;
             }
 
-            $scope.$on("ezp-hidesAll", function (e, msg) {
+            $scope.$on('ezp-hidesAll', function (e, msg) {
                 hideZoom();
             });
-            $scope.$on("ezp-showAll", function (e, msg) {
+            $scope.$on('ezp-showAll', function (e, msg) {
                 showZoom();
             });
-            $scope.$on("ezp-disableZoom", function (e, msg) {
+            $scope.$on('ezp-disableZoom', function (e, msg) {
                 var plugin = angular.element($element).data('ezPlus');
                 if (plugin) {
                     plugin.changeState('disable');
                 }
             });
-            $scope.$on("ezp-enableZoom", function (e, msg) {
+            $scope.$on('ezp-enableZoom', function (e, msg) {
                 var plugin = angular.element($element).data('ezPlus');
                 if (plugin) {
                     plugin.changeState('enable');
@@ -151,22 +151,23 @@
             });
 
             function hideZoom() {
-                var action='hide';
+                var action = 'hide';
                 var plugin = angular.element($element).data('ezPlus');
                 if (plugin) {
                     plugin.showHideZoomContainer(action);
-                    plugin.showHideWindow(action);
+                    /*plugin.showHideWindow(action);
                     plugin.showHideTint(action);
-                    plugin.showHideLens(action);
+                    plugin.showHideLens(action);*/
                 }
             }
+
             function showZoom() {
-                var action='show';
+                var action = 'show';
                 var plugin = angular.element($element).data('ezPlus');
                 if (plugin) {
-                    plugin.showHideLens(action);
+                    /*plugin.showHideLens(action);
                     plugin.showHideTint(action);
-                    plugin.showHideWindow(action);
+                    plugin.showHideWindow(action);*/
                     plugin.showHideZoomContainer(action);
                 }
             }

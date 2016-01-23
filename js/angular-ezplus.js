@@ -96,6 +96,10 @@
                     plugin.changeState('enable');
                 }
             });
+            //updates options dinamically
+            $scope.$watch('ezpOptions', function (newValue, oldValue) {
+                angular.extend(options, $scope.ezpOptions);
+            });
             $scope.$watch('ezpModel', function (newValue, oldValue) {
                 var image = newValue;
                 var thumbUrl = (image && image.thumb) || '';

@@ -160,8 +160,8 @@
                 if (plugin) {
                     plugin.showHideZoomContainer(action);
                     /*plugin.showHideWindow(action);
-                    plugin.showHideTint(action);
-                    plugin.showHideLens(action);*/
+                     plugin.showHideTint(action);
+                     plugin.showHideLens(action);*/
                 }
             }
 
@@ -170,8 +170,8 @@
                 var plugin = angular.element($element).data('ezPlus');
                 if (plugin) {
                     /*plugin.showHideLens(action);
-                    plugin.showHideTint(action);
-                    plugin.showHideWindow(action);*/
+                     plugin.showHideTint(action);
+                     plugin.showHideWindow(action);*/
                     plugin.showHideZoomContainer(action);
                 }
             }

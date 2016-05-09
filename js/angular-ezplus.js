@@ -26,6 +26,7 @@
 
         link.$inject = ['$scope', '$element', '$attributes'];
         function link($scope, $element, $attributes) {
+            var bootstrapped = false;
             var options = {
                 onComplete: function () {
                     if ($scope.onComplete && $scope.onComplete()) {
@@ -96,10 +97,18 @@
                     plugin.changeState('enable');
                 }
             });
-            //updates options dinamically
+            //updates options dynamically by deeply watching the options object
             $scope.$watch('ezpOptions', function (newValue, oldValue) {
-                angular.extend(options, $scope.ezpOptions);
-            });
+                if (!bootstrapped) {
+                    bootstrapped = true;
+                } else {
+                    var plugin = angular.element($element).data('ezPlus');
+                    angular.extend(options, $scope.ezpOptions);
+                    if (plugin) {
+                        angular.element($element).ezPlus(options);
+                    }
+                }
+            }, true);
             $scope.$watch('ezpModel', function (newValue, oldValue) {
                 var image = newValue;
                 var thumbUrl = (image && image.thumb) || '';

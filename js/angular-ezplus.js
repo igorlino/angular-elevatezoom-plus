@@ -103,6 +103,7 @@
                     bootstrapped = true;
                 } else {
                     var plugin = angular.element($element).data('ezPlus');
+                    plugin.destroy();
                     angular.extend(options, $scope.ezpOptions);
                     if (plugin) {
                         angular.element($element).ezPlus(options);

@@ -4,7 +4,7 @@
     angular.module('ezplus', [])
         .directive('ezPlus', ezPlus);
 
-    function ezPlus() {
+    function ezPlus($document) {
         var service = {
             restrict: 'A',
             scope: {
@@ -27,6 +27,8 @@
         link.$inject = ['$scope', '$element', '$attributes'];
         function link($scope, $element, $attributes) {
             var bootstrapped = false;
+            var lastPlugin = null;
+            var zoomIds = {};
             var options = {
                 onComplete: function () {
                     if ($scope.onComplete && $scope.onComplete()) {
@@ -86,13 +88,13 @@
                 showZoom();
             });
             $scope.$on('ezp-disableZoom', function (e, msg) {
-                var plugin = angular.element($element).data('ezPlus');
+                var plugin = getZoomPlugin();
                 if (plugin) {
                     plugin.changeState('disable');
                 }
             });
             $scope.$on('ezp-enableZoom', function (e, msg) {
-                var plugin = angular.element($element).data('ezPlus');
+                var plugin = getZoomPlugin();
                 if (plugin) {
                     plugin.changeState('enable');
                 }
@@ -102,11 +104,11 @@
                 if (!bootstrapped) {
                     bootstrapped = true;
                 } else {
-                    var plugin = angular.element($element).data('ezPlus');
+                    var plugin = getZoomPlugin();
                     plugin.destroy();
                     angular.extend(options, $scope.ezpOptions);
                     if (plugin) {
-                        angular.element($element).ezPlus(options);
+                        preparePlugin($element, options);
                     }
                 }
             }, true);
@@ -116,7 +118,8 @@
                 var smallUrl = (image && image.small) || '';
                 var largeUrl = (image && image.large) || '';
 
-                var plugin = angular.element($element).data('ezPlus');
+                var initialUrl = null;
+                var plugin = getZoomPlugin();
                 if (plugin) {
                     if (image) {
                         hideZoom();
@@ -124,7 +127,7 @@
                             plugin.swaptheimage(loader, loader);
                         }
 
-                        var initialUrl = getInitialUrl(smallUrl);
+                        initialUrl = getInitialUrl(options, smallUrl);
                         plugin.swaptheimage(initialUrl, largeUrl);
                         showZoom();
                     } else {
@@ -133,18 +136,18 @@
                 } else {
                     if (image) {
 
-                        var initialUrl = getInitialUrl();
+                        initialUrl = getInitialUrl(options);
                         if (initialUrl) {
                             $element.attr('src', initialUrl);
                         }
 
                         $element.attr('data-zoom-image', largeUrl);
 
-                        angular.element($element).ezPlus(options);
+                        preparePlugin($element, options);
                     }
                 }
 
-                function getInitialUrl(defaultUrl) {
+                function getInitialUrl(options, defaultUrl) {
                     var initialUrl = defaultUrl;
                     if (options.initial === 'thumb') {
                         initialUrl = thumbUrl;
@@ -157,16 +160,46 @@
                 }
             });
 
-            $scope.$on('$destroy', function () {
-                var plugin = angular.element($element).data('ezPlus');
+            $scope.$on('$destroy', destroyPlugin);
+
+            function destroyPlugin() {
+                var plugin = getZoomPlugin();
                 if (plugin) {
                     plugin.destroy();
                 }
-            });
+
+                //in case the $destroy is called after the actual plugin element was removed, otherwise zoom containers
+                //will be visible.
+                for (var zoomId in zoomIds) {
+                    if (zoomIds.hasOwnProperty(zoomId)) {
+                        var zoomContainer = findZoomContainer(zoomId);
+                        zoomContainer.remove();
+                    }
+                }
+                zoomIds = {};
+            }
+
+            function findZoomContainer(uuid) {
+                return angular.element($document).find('[uuid=' + uuid + ']');
+            }
+
+            function preparePlugin(element, options) {
+                var plugin = angular.element(element).ezPlus(options);
+                lastPlugin = plugin && plugin.length > 0 ? getZoomPlugin(plugin[0]) : null;
+                if (lastPlugin) {
+                    zoomIds[lastPlugin.options.zoomId] = true;
+                }
+                return lastPlugin;
+            }
+
+            function getZoomPlugin(element) {
+                var plugin = angular.element(element ? element : $element).data('ezPlus');
+                return plugin;
+            }
 
             function hideZoom() {
                 var action = 'hide';
-                var plugin = angular.element($element).data('ezPlus');
+                var plugin = getZoomPlugin();
                 if (plugin) {
                     plugin.showHideZoomContainer(action);
                     /*plugin.showHideWindow(action);
@@ -177,7 +210,7 @@
 
             function showZoom() {
                 var action = 'show';
-                var plugin = angular.element($element).data('ezPlus');
+                var plugin = getZoomPlugin();
                 if (plugin) {
                     /*plugin.showHideLens(action);
                      plugin.showHideTint(action);

@@ -1,5 +1,8 @@
 <a name="1.0.0"></a>
 
+# 1.1.18c (2016-07-06)
+- Fix for zoom container bug. Destroy zoom container if $destroy was too late.
+
 # 1.1.18b (2016-17-05)
 - Fix for zoom container bug. Destroy old plugin before updating the the plugin when using dynamic options
 

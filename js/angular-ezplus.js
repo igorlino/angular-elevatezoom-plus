@@ -4,6 +4,7 @@
     angular.module('ezplus', [])
         .directive('ezPlus', ezPlus);
 
+    ezPlus.$inject = ['$document'];
     function ezPlus($document) {
         var service = {
             restrict: 'A',

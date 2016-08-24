@@ -129,6 +129,7 @@
                         }
 
                         initialUrl = getInitialUrl(options, smallUrl);
+                        $element.data($scope.ezpOptions.attrImageZoomSrc || 'zoom-image', $scope.ezpModel.large || '');
                         plugin.swaptheimage(initialUrl, largeUrl);
                         showZoom();
                     } else {
@@ -142,7 +143,7 @@
                             $element.attr('src', initialUrl);
                         }
 
-                        $element.attr('data-zoom-image', largeUrl);
+                        $element.data($scope.ezpOptions.attrImageZoomSrc || 'zoom-image', $scope.ezpModel.large || '');
 
                         preparePlugin($element, options);
                     }

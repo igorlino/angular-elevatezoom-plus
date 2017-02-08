@@ -121,7 +121,7 @@
 
                 var initialUrl = null;
                 var plugin = getZoomPlugin();
-                if (plugin) {
+                if (plugin && plugin.options.enabled) {
                     if (image) {
                         hideZoom();
                         if (loader) {
